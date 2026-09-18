@@ -2,8 +2,10 @@ const HOURS = Array.from({ length: 24 }, (_, i) => i);
 
 export default function ProfilesTable({ hours, onChange }) {
   const update = (idx, key, value) => {
+    const parsed = value === "" ? 0 : Number(value);
+    const safe = Number.isFinite(parsed) ? parsed : 0;
     const next = hours.map((h, i) =>
-      i === idx ? { ...h, [key]: value === "" ? "" : Number(value) } : h
+      i === idx ? { ...h, [key]: safe } : h
     );
     onChange(next);
   };

@@ -30,9 +30,16 @@ export async function postOptimize(payload) {
   }
 
   if (!response.ok) {
-    // Django/DRF returns {"detail": "..."} on errors.
-    const message =
-      body?.detail || `Request failed with status ${response.status}`;
+    // Django/DRF returns {"detail": "..."} on errors. Strip the noisy
+    // "Semantic constraint violation:" prefix so the actual field error
+    // shows in the UI banner.
+    const rawDetail = body?.detail;
+    let message;
+    if (typeof rawDetail === "string") {
+      message = rawDetail.replace(/^Semantic constraint violation:\s*/, "");
+    } else {
+      message = `Request failed with status ${response.status}`;
+    }
     const err = new Error(message);
     err.status = response.status;
     throw err;
