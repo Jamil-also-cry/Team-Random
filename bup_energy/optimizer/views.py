@@ -3,7 +3,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .optimizer import optimize_energy
+from . import optimizer
 
 
 @csrf_exempt
@@ -28,5 +28,5 @@ def optimize_energy_view(request):
             status=400,
         )
 
-    result = optimize_energy(payload)
+    result = optimizer.optimize_energy(payload)
     return JsonResponse(result)
