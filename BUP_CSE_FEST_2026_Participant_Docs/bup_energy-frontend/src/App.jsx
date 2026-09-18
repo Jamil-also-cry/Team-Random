@@ -8,6 +8,7 @@ import OperatorNotes from "./components/OperatorNotes.jsx";
 import SummaryCards from "./components/SummaryCards.jsx";
 import HourlyPlanTable from "./components/HourlyPlanTable.jsx";
 import DirectiveList from "./components/DirectiveList.jsx";
+import JsonSubmit from "./components/JsonSubmit.jsx";
 
 function buildPayload({ scenarioId, hours, battery, notes }) {
   // Backend requires 1..3 non-blank operator notes (see api/serializers.py).
@@ -116,6 +117,13 @@ export default function App() {
               Reset
             </button>
           </div>
+
+          <JsonSubmit
+            onResult={setResult}
+            onError={setError}
+            onLoading={setLoading}
+            busy={loading}
+          />
 
           {error && (
             <div className="banner banner-error" role="alert">

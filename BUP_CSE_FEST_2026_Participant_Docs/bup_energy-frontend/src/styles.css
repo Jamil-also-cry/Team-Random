@@ -192,6 +192,30 @@ tbody tr:hover { background: rgba(56,189,248,0.05); }
   margin: 6px 0 0; padding: 8px; background: #0b1224;
   border-radius: 6px; font-size: 12px; overflow: auto;
 }
+
+.json-drop {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 18px; margin-bottom: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: var(--panel-2);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease;
+}
+.json-drop:hover, .json-drop.is-drag {
+  border-color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+.json-drop-title {
+  color: var(--text); font-weight: 600; font-size: 13px;
+}
+.json-paste {
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  resize: vertical;
+}
 .pill {
   font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.05em;
