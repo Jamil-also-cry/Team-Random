@@ -1,0 +1,41 @@
+gridwise-bup-2026/
+├── manage.py
+├── requirements.txt
+├── Dockerfile
+├── pytest.ini
+├── .dockerignore
+├── .gitignore
+├── .env.example
+├── README.md
+├── gridwise_site/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+├── api/
+│   ├── __init__.py
+│   ├── apps.py
+│   ├── urls.py
+│   └── views.py
+├── config/
+│   ├── __init__.py
+│   └── config.py
+├── models/
+│   ├── __init__.py
+│   └── schemas.py
+├── llm/
+│   ├── __init__.py
+│   ├── prompt.py
+│   └── interpreter.py
+├── optimizer/
+│   ├── __init__.py
+│   ├── solver.py
+│   └── validator.py
+├── utils/
+│   ├── __init__.py
+│   └── helpers.py
+└── tests/
+    ├── __init__.py
+    ├── public_cases.json
+    └── test_api.py
